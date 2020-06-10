@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./Menu.css";
+import "./Menu.scss";
 import { connect } from "react-redux";
 import { logout } from "../../redux";
 
 class Menu extends React.Component {
-  handleLogout = event => {
+  handleLogout = (event) => {
     event.preventDefault();
     this.props.logout();
   };
@@ -14,6 +14,7 @@ class Menu extends React.Component {
     return (
       <div id="menu">
         <h1>Kwitter</h1>
+
         {this.props.isAuthenticated && (
           <div id="menu-links">
             <Link to="/messagefeed">Message Feed</Link>
@@ -28,10 +29,10 @@ class Menu extends React.Component {
 }
 
 export default connect(
-  state => ({
+  (state) => ({
     result: state.auth.logout.result,
     loading: state.auth.logout.loading,
-    error: state.auth.logout.error
+    error: state.auth.logout.error,
   }),
   { logout }
 )(Menu);
