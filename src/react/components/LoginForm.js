@@ -49,7 +49,7 @@ class LoginForm extends React.Component {
               Login
             </Button>
             <br />
-            <Link to='/signup-form'> Sign Up for Kwitter!</Link>
+            <Link to='/register-form'> Sign Up for Kwitter!</Link>
           </Form>
           {loading && <Spinner name='circle' color='blue' />}
           {error && <p style={{ color: 'red' }}>{error.message}</p>}

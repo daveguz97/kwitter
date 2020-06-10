@@ -6,21 +6,20 @@ import { addUser } from '../../redux';
 import { withRouter } from 'react-router-dom';
 import { Button, Form } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
-// import logo from './Kwitter_logo_small.jpg';
 import './Registration.css';
 
 class RegistrationForm extends React.Component {
   state = { username: '', displayName: '', password: '' };
 
-  handleRegistration = (e) => {
-    e.preventDefault();
+  handleRegistration = (event) => {
+    event.preventDefault();
     this.props.addUser(this.state);
     if (this.props.error === null) {
       return this.props.history.push('/');
     }
   };
-  handleChange = (e) => {
-    this.setState({ [e.target.name]: e.target.value });
+  handleChange = (event) => {
+    this.setState({ [event.target.name]: event.target.value });
   };
 
   render() {
@@ -30,7 +29,7 @@ class RegistrationForm extends React.Component {
       <React.Fragment>
         <div className='register-form-box'>
           <h1>Sign Up for Kwitter!</h1>
-          <Form id='signup-form' onSubmit={this.handleRegistration}>
+          <Form id='register-form' onSubmit={this.handleRegistration}>
             <Form.Field>
               <label>Username</label>
               <input
@@ -72,15 +71,6 @@ class RegistrationForm extends React.Component {
           {error && <p style={{ color: 'red' }}>{error.message}</p>}
         </div>
         <br />
-        {/* <div className='logo-frame'>
-          <Image
-            src={logo}
-            size='small'
-            alt=''
-            className='ui-small-image'
-            circular
-          />
-        </div> */}
       </React.Fragment>
     );
   }
