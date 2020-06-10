@@ -1,7 +1,7 @@
 import React from "react";
 import { Menu } from "./components";
 import { userIsAuthenticated } from "./HOCs";
-import UpdateAbout from "./UpdateAbout";
+import UpdateProfile from "./UpdateProfile";
 
 class Profile extends React.Component {
   render() {
@@ -9,7 +9,7 @@ class Profile extends React.Component {
       <>
         <Menu isAuthenticated={this.props.isAuthenticated} />
         <h2>Profile</h2>
-        <button onClick={UpdateAbout}>Update About</button>
+        <button onClick={UpdateProfile}>Update Profile</button>
       </>
     );
   }
