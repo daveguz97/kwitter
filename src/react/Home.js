@@ -1,8 +1,8 @@
 import React from "react";
 import { LoginForm } from "./components";
-import "./Home.scss";
 import { userIsNotAuthenticated } from "./HOCs";
 import Button from "react-bootstrap/Button";
+import "./Home.scss";
 class Home extends React.Component {
   constructor(props) {
     super(props);
@@ -23,7 +23,7 @@ class Home extends React.Component {
 
   render() {
     return (
-      <main className={this.state.darkMode ? "darkmode" : "lightmode"}>
+      <div className={`Home ${this.state.darkMode ? "darkmode" : "lightmode"}`}>
         <div className="options">
           <Button id="dark-mode-btn" variant="dark" onClick={this.setDarkMode}>
             Dark Mode
@@ -37,7 +37,7 @@ class Home extends React.Component {
           </Button>
         </div>
         <LoginForm darkMode={this.state.dark} />
-      </main>
+      </div>
     );
   }
 }
