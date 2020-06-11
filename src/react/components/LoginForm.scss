@@ -1,21 +1,21 @@
 .LoginForm {
   display: flex;
+  height: 100%;
   .left-side {
     display: flex;
     color: #eee;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-evenly;
     width: 50%;
-    height: 100vh;
+
     padding: 1rem 0;
     align-items: center;
     font-weight: 600;
     padding: 0 1rem;
     background: linear-gradient(rgba(13, 13, 13, 0.3), rgba(13, 13, 13, 0.3)),
       url("../img/login-background.jpeg") no-repeat center center/cover;
-    h1 {
-      margin: 1rem;
-    }
+    font-weight: 600;
+
     ul {
       display: flex;
       flex-direction: column;
@@ -37,7 +37,7 @@
   form {
     .form-group {
       position: relative;
-      width: 75%;
+      width: 50%;
       margin: 1rem auto;
       .form-control {
         padding: 1rem 2rem;
@@ -50,7 +50,9 @@
       }
     }
     .btn {
-      width: 75%;
+      width: 50%;
+      display: block;
+      margin: 1rem auto;
     }
   }
 }

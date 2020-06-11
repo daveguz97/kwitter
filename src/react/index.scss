@@ -4,7 +4,16 @@
   box-sizing: border-box;
 }
 
+html,
+body {
+  overflow: auto;
+}
+
 body {
   font-family: "Lato", sans-serif;
   position: relative;
+}
+
+#root {
+  width: 100%;
 }
