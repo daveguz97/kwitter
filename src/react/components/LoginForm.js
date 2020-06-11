@@ -3,6 +3,7 @@ import Menu from "./Menu";
 import Spinner from "react-spinkit";
 import { connect } from "react-redux";
 import { login } from "../../redux";
+import { Link } from "react-router-dom";
 import KwitterLogo from "../img/kwitter-logo.png";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
@@ -76,7 +77,7 @@ class LoginForm extends React.Component {
             </div>
             <div>
               <FormText>
-                <a href="#">New User? Sign Up</a>
+                <Link to="/register-form"> New User? Sign Up</Link>
               </FormText>
             </div>
             <Button className="outline=primary mt-2">
