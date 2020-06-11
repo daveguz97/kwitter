@@ -1,0 +1,64 @@
+.LoginForm {
+  display: flex;
+  .left-side {
+    display: flex;
+    color: #eee;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 50%;
+    height: 100vh;
+    padding: 1rem 0;
+    align-items: center;
+    font-weight: 600;
+    padding: 0 1rem;
+    background: linear-gradient(rgba(13, 13, 13, 0.3), rgba(13, 13, 13, 0.3)),
+      url("../img/login-background.jpeg") no-repeat center center/cover;
+    h1 {
+      margin: 1rem;
+    }
+    ul {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      list-style-type: none;
+      li {
+        margin: 2rem 0;
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  img {
+    max-width: 150px;
+    max-height: 150px;
+  }
+
+  form {
+    .form-group {
+      position: relative;
+      width: 75%;
+      margin: 1rem auto;
+      .form-control {
+        padding: 1rem 2rem;
+      }
+      .fas {
+        position: absolute;
+        color: #333;
+        top: 10px;
+        left: 10px;
+      }
+    }
+    .btn {
+      width: 75%;
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .LoginForm {
+    .left-side {
+      display: none;
+    }
+  }
+}
