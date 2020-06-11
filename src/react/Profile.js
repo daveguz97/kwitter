@@ -1,7 +1,6 @@
 import React from "react";
 import { Menu } from "./components";
 import { userIsAuthenticated } from "./HOCs";
-
 class Profile extends React.Component {
   render() {
     return (
@@ -12,5 +11,4 @@ class Profile extends React.Component {
     );
   }
 }
-
 export default userIsAuthenticated(Profile);
