@@ -79,6 +79,9 @@ class LoginForm extends React.Component {
                 <a href="#">New User? Sign Up</a>
               </FormText>
             </div>
+            <Button className="outline=primary mt-2">
+              Sign In with <div className="fab fa-google"></div>
+            </Button>
             <Button
               type="submit"
               variant="outline-primary"
@@ -89,9 +92,6 @@ class LoginForm extends React.Component {
             </Button>
             {loading && <Spinner name="circle" color="blue" />}
             {error && <p style={{ color: "red" }}>{error.message}</p>}
-            <Button className="outline=primary mt-2">
-              Sign In with <div className="fab fa-google"></div>
-            </Button>
           </form>
         </Container>
       </section>

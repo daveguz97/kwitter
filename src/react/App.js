@@ -3,7 +3,6 @@ import { Switch, Route } from "react-router-dom";
 import Home from "./Home";
 import Profile from "./Profile";
 import NotFound from "./NotFound";
-import Button from "react-bootstrap/Button";
 import "./App.scss";
 
 class App extends React.Component {
