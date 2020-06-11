@@ -1,7 +1,7 @@
 import React from "react";
 import { Menu } from ".";
 import { userIsAuthenticated } from "../HOCs";
-import UpdateProfile from "../UpdateProfile";
+import UpdateProfile from "./UpdateProfile";
 import {connect} from "react-redux";
 import {getUser} from "../../redux/auth";
 import {domain} from "../../redux/helper";
@@ -13,6 +13,9 @@ class Profile extends React.Component {
      displayName:"",
      about:"",
      pictureLocation:"",
+     createdAt: "",
+     updatedAt: "",
+
 
    }
 componentDidMount=() =>{
@@ -22,10 +25,14 @@ componentDidMount=() =>{
     displayName:val.payload.user.displayName,
     about:val.payload.user.about,
     pictureLocation:val.payload.user.pictureLocation,
+    createdAt: val.payload.user.createdAt,
+    updatedAt: val.payload.user.updatedAt,
   })
   )
 }
   render() {
+    const CreateDate = new Date(this.state.createdAt)
+    const UpdatedDate = new Date(this.state.updatedAt)
     return (
       <>
         {/* <Menu isAuthenticated={this.props.isAuthenticated} /> */}
@@ -33,12 +40,15 @@ componentDidMount=() =>{
         <button onClick={UpdateProfile}>Update Profile</button>
         <div className="ProfileCard">
           <Card id="Card1">
-    <Card.Header>{this.state.displayName}</Card.Header>
-    <Card.Description>{this.state.username}</Card.Description>
-    <Card.Description>{this.state.about}</Card.Description>
-
-          </Card>
-    <Image id="avatar" src="{this.state.pictureLocation}"></Image>
+              <Card.Header>{this.state.displayName}</Card.Header>
+              <Card.Description>{this.state.username}</Card.Description>
+              <Card.Description>{this.state.about}</Card.Description>
+              <Card.Description>
+                <p>Joined Kwitter On:{CreateDate.toDateString()}</p>
+                <p> Last Update On: {UpdatedDate.toDateString()}</p>
+              </Card.Description>
+        </Card>
+    <Image id="avatar" src="{domain + this.state.pictureLocation}"></Image>
         </div>
       </>
     );
