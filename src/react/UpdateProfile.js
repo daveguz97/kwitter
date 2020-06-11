@@ -1,31 +1,12 @@
 import React from 'react';
 
-
+const UserAbout = "https://kwitter-api.kerokuapp.com/docs/#/Users/updateUser"
 
 
   function   UpdateProfile () {
-    fetch(“https://kwitter-api.herokuapp.com/docs/#/Users/updateUser” 
-        {
-        "method": "PATCH,
-        "body": JSON.stringify(
-        {
-          "password": "strings",
-          "about": “tell me something good”,
-          "displayName": “DreamTeam”
-        }
-        )
-        })
-        .then(response => response.json())
-        .then(response => {
-        console.log(response)
-        })
-        .catch(err => {
-        console.log(err);
-        });
-        }
-        
-   }
+    
+   console.log("look I work")
 
-
+}
 
 export default  UpdateProfile; 
