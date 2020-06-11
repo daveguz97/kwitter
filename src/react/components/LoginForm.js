@@ -71,10 +71,6 @@ class LoginForm extends React.Component {
               />
               <i className="fas fa-lock"></i>
             </FormGroup>
-            <div className="mt-1">
-              <input type="checkbox" id="remember-me" name="remember-me" />
-              <label htmlFor="remember-me"> &nbsp; Remember Me</label>
-            </div>
             <div>
               <FormText>
                 <Link to="/register-form"> New User? Sign Up</Link>
