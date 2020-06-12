@@ -1,7 +1,7 @@
 //ProfilePage
 import React from 'react';
 import { connect } from 'react-redux';
-import { ProfileSubmit} from '.';
+import { ProfileSubmit, DeleteUser } from '.';
 import { getUser } from '../../redux';
 import { domain } from '../../redux/helpers';
 import { Button, Card, Image, Modal, Header } from 'semantic-ui-react';
@@ -60,7 +60,7 @@ class ProfilePage extends React.Component {
             <Modal.Description>
               <Header>Update Account Information</Header>
               <ProfileSubmit />
-              {/* <DeleteUser /> */}
+              <DeleteUser />
             </Modal.Description>
           </Modal.Content>
         </Modal>

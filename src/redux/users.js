@@ -1,4 +1,3 @@
-//users.js
 import {
   domain,
   jsonHeaders,
@@ -8,7 +7,7 @@ import {
   createActions,
   createReducer,
 } from './helpers';
-// const LOGOUT = createActions('logout');
+const LOGOUT = createActions('logout');
 // Add user
 const ADD_USER = createActions('addUser');
 export const addUser = (addUserData) => (dispatch) => {
@@ -35,6 +34,8 @@ export const getUser = () => (dispatch, getState) => {
     .then((result) => dispatch(GET_USER.SUCCESS(result)))
     .catch((err) => Promise.reject(dispatch(GET_USER.FAIL(err))));
 };
+
+// get Profile Summary
 const GET_PROFILE_SUM = createActions('getProfileSum');
 export const getProfileSum = (getProfileSumData) => (dispatch, getState) => {
   dispatch(GET_PROFILE_SUM.START());
@@ -48,7 +49,7 @@ export const getProfileSum = (getProfileSumData) => (dispatch, getState) => {
     .then((result) => dispatch(GET_PROFILE_SUM.SUCCESS(result)))
     .catch((err) => Promise.reject(dispatch(GET_PROFILE_SUM.FAIL(err))));
 };
-// set profile picture
+// get profile Image
 const GET_IMAGE_PRO = createActions('getImagePro');
 export const getImagePro = (getImageProData) => (dispatch, getState) => {
   dispatch(GET_IMAGE_PRO.START());
@@ -63,6 +64,24 @@ export const getImagePro = (getImageProData) => (dispatch, getState) => {
     .then((result) => dispatch(GET_IMAGE_PRO.SUCCESS(result)))
     .catch((err) => Promise.reject(dispatch(GET_IMAGE_PRO.FAIL(err))));
 };
+
+//Delte user
+const DELETE_USER = createActions('deleteUsario');
+export const deleteUsario = (deleteUserData) => (dispatch, getState) => {
+  dispatch(DELETE_USER.START());
+
+  const { username, token } = getState().auth.login.result;
+
+  return fetch(domain + `/users/${username}`, {
+    method: 'DELETE',
+    headers: { Authorization: 'Bearer ' + token, ...jsonHeaders },
+  })
+    .then(handleJsonResponse)
+    .then((result) => dispatch(DELETE_USER.SUCCESS(result)))
+    .catch((err) => Promise.reject(dispatch(GET_IMAGE_PRO.FAIL(err))))
+    .then((result) => dispatch(LOGOUT.SUCCESS(result)));
+};
+
 export const reducers = {
   addUser: createReducer(asyncInitialState, {
     ...asyncCases(ADD_USER),
@@ -76,4 +95,7 @@ export const reducers = {
   getImagePro: createReducer(asyncInitialState, {
     ...asyncCases(GET_IMAGE_PRO),
   }),
-}
+  deleteUsario: createReducer(asyncInitialState, {
+    ...asyncCases(DELETE_USER),
+  }),
+};
