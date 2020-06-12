@@ -10,6 +10,7 @@ import Container from "react-bootstrap/Container";
 import FormGroup from "react-bootstrap/FormGroup";
 import FormControl from "react-bootstrap/FormControl";
 import FormText from "react-bootstrap/FormText";
+import GoogleLogin from "react-google-login";
 import "./LoginForm.scss";
 
 class LoginForm extends React.Component {
@@ -47,7 +48,7 @@ class LoginForm extends React.Component {
           </div>
         </aside>
         <Container className="mx-auto">
-          <img src={KwitterLogo} alt="Kwitter Logo" />
+          <img className="logo" src={KwitterLogo} alt="Kwitter Logo" />
           <h1>Sign In</h1>
           <form id="login-form" onSubmit={this.handleLogin}>
             <FormGroup>
@@ -76,9 +77,22 @@ class LoginForm extends React.Component {
                 <Link to="/register-form"> New User? Sign Up</Link>
               </FormText>
             </div>
-            <Button className="outline=primary mt-2">
-              Sign In with <div className="fab fa-google"></div>
-            </Button>
+            {/* <GoogleLogin
+              clientId="658977310896-knrl3gka66fldh83dao2rhgbblmd4un9.apps.googleusercontent.com"
+              render={(renderProps) => (
+                <button
+                  onClick={renderProps.onClick}
+                  disabled={renderProps.disabled}
+                >
+                  This is my custom Google button
+                </button>
+              )}
+              buttonText="Login"
+              onSuccess={responseGoogle}
+              onFailure={responseGoogle}
+              cookiePolicy={"single_host_origin"}
+            />
+            , */}
             <Button
               type="submit"
               variant="outline-primary"

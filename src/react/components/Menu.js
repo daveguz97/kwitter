@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./Menu.scss";
 import { connect } from "react-redux";
 import { logout } from "../../redux";
+import kwitterLogo from "../img/kwitter-logo.png";
 
 class Menu extends React.Component {
   handleLogout = (event) => {
@@ -13,7 +14,7 @@ class Menu extends React.Component {
   render() {
     return (
       <div id="menu">
-        <h1>Kwitter</h1>
+        <img className="logo" src={kwitterLogo}></img>
 
         {this.props.isAuthenticated && (
           <div id="menu-links">
