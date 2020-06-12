@@ -1,20 +1,23 @@
 import React from "react";
-import { Menu } from ".";
-import { userIsAuthenticated } from "../HOCs";
-import UpdateProfile from "../UpdateProfile";
+// import { Menu } from ".";
+// import { userIsAuthenticated } from "../HOCs";
+import {UpdateProfileSubmit} from "./";
 import {connect} from "react-redux";
-import {getUser} from "../../redux/auth";
-import {domain} from "../../redux/helper";
-import {Button,Card,Image, Header} from "semantic-ui-react";
+import {getUser} from "../../redux";
+import {domain} from "../../redux/helpers";
+import {Card ,Image , Header} from "semantic-ui-react";
+import {ProfileSummary} from "."
 
-class Profile extends React.Component {
+class ProfilePage extends React.Component {
    state={
      username: "",
      displayName:"",
      about:"",
      pictureLocation:"",
-
+     createdAt: "",
+     updatedAt: "",
    }
+
 componentDidMount=() =>{
   this.props.getUser()
   .then(val=>this.setState({
@@ -22,23 +25,36 @@ componentDidMount=() =>{
     displayName:val.payload.user.displayName,
     about:val.payload.user.about,
     pictureLocation:val.payload.user.pictureLocation,
+    createdAt: val.payload.user.createdAt,
+    updatedAt: val.payload.user.updatedAt,
   })
   )
 }
   render() {
+    const CreateDate = new Date(this.state.createdAt)
+    const UpdatedDate = new Date(this.state.updatedAt)
     return (
       <>
         {/* <Menu isAuthenticated={this.props.isAuthenticated} /> */}
         {/* <h2>Profile</h2> */}
-        <button onClick={UpdateProfile}>Update Profile</button>
+        {/* <button onClick={UpdateProfile}>Update Profile</button> */}
         <div className="ProfileCard">
           <Card id="Card1">
-    <Card.Header>{this.state.displayName}</Card.Header>
-    <Card.Description>{this.state.username}</Card.Description>
-    <Card.Description>{this.state.about}</Card.Description>
-
-          </Card>
-    <Image id="avatar" src="{this.state.pictureLocation}"></Image>
+              <Card.Header>{this.state.displayName}</Card.Header>
+              <Card.Description>@{this.state.username}</Card.Description>
+              <Card.Description>{this.state.about}</Card.Description>
+              <Card.Description>
+                <p>Joined Kwitter On:{CreateDate.toDateString()}</p>
+                <p> Last Update On: {UpdatedDate.toDateString()}</p>
+              </Card.Description>
+        </Card>
+    <Image id="avatar" src={domain + this.state.pictureLocation} size= "medium" ></Image>
+    <div>
+    <Header>
+      Choose Profile Picture
+    </Header>
+    <UpdateProfileSubmit/>
+    </div>
         </div>
       </>
     );
@@ -51,4 +67,5 @@ export default connect(
     loading: state.user.getUser.loading,
     error: state.user.getUser.error
   }),
-  {getUser})(Profile);
+  {getUser})(ProfilePage);
+
