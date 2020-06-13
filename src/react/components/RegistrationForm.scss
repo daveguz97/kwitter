@@ -4,8 +4,14 @@
   justify-content: center;
   height: 100vh;
   margin: auto 0;
+  header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   h1 {
     font-weight: 800;
+    color: #2eb5ad;
   }
   #register-form {
     width: 75%;

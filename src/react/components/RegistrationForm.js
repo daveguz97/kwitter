@@ -7,6 +7,7 @@ import { withRouter } from "react-router-dom";
 import { Button, Form } from "semantic-ui-react";
 import Container from "react-bootstrap/Container";
 import { Link } from "react-router-dom";
+import kwitterLogo from "../img/kwitter-logo.png";
 import "./RegistrationForm.scss";
 
 class RegistrationForm extends React.Component {
@@ -30,7 +31,12 @@ class RegistrationForm extends React.Component {
       <React.Fragment>
         <Container>
           <section className="register-section">
-            <h1 className="text-center">Sign Up for Kwitter!</h1>
+            <header>
+              <div className="img-div">
+                <img src={kwitterLogo} alt="Logo" className="logo" />
+              </div>
+              <h1 className="text-center">Sign Up for Kwitter!</h1>
+            </header>
             <Form id="register-form" onSubmit={this.handleRegistration}>
               <Form.Field>
                 <label>Username</label>
