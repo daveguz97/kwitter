@@ -30,7 +30,6 @@ class LoginForm extends React.Component {
     return (
       <section className="LoginForm my-auto text-center">
         <aside className="left-side">
-          <Menu darkMode={this.state.darkMode} />
           <div className="text-center">
             <h1>Find Out What's happening</h1>
             <ul>
