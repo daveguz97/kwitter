@@ -12,56 +12,55 @@ import {
 
   const CREATE_MESSAGE = createActions("createMessage");
   export const CREATE_MESSAGE = createMessageData => dispatch => {
-    dispatch(LOGIN.START());
-  
-    return fetch(url + "/message", {
+    dispatch(CREATE_MESSAGE.START());
+    const token = getState().auth.login.result.token;
+    return fetch(url , {
       method: "POST",
-      headers: jsonHeaders,
+      headers:{ Authorization: "Bearer " + token, ...jsonHeaders },
       body: JSON.stringify(createMessageData)
     })
       .then(handleJsonResponse)
-      .then(result => dispatch(LOGIN.SUCCESS(result)))
-      .catch(err => Promise.reject(dispatch(LOGIN.FAIL(err))));
+      .then(result => dispatch(CREATE_MESSAGE.SUCCESS(result)))
+      .catch(err => Promise.reject(dispatch(CREATE_MESSAGE.FAIL(err))));
   };
   
 const DELETE_MESSAGE = createActions('deleteMessage');
-export const deleteMessage = (deleteMessageData) => (dispatch, getState) => {
+export const deleteMessage = (id) => (dispatch, getState) => {
   dispatch(DELETE_MESSAGE.START());
 
-  const { username, token } = getState().auth.login.result;
-
-  return fetch(domain + `/message/${username}`, {
+  const token = getState().auth.login.result.token;
+  const APIendpoint = url + "/" + id;
+  return fetch(APIendpoint, {
     method: 'DELETE',
-    headers: { Authorization: 'Bearer ' + token, ...jsonHeaders },
+    headers:{ Authorization: "Bearer " + token, ...jsonHeaders }
   })
     .then(handleJsonResponse)
     .then((result) => dispatch(DELETE_MESSAGE.SUCCESS(result)))
-    .catch((err) => Promise.reject(dispatch(GET_IMAGE_PRO.FAIL(err))))
-    .then((result) => dispatch(LOGOUT.SUCCESS(result)));
+    .catch((err) => Promise.reject(dispatch(DELETE_MESSAGE.FAIL(err))))
+  
 };
 const MESSAGE_LIST = createActions('messageList');
-export const messageList = (messageListData) => (dispatch, getState) => {
+export const messageList = (limit=100,offset=0,username) => (dispatch, getState) => {
   dispatch(MESSAGE_LIST.START());
-
-  const { username, token } = getState().auth.login.result;
-
-  return fetch(domain + `/message/${username}`, {
+    const APIendpoint= url + "?limit="+ limit + "&offset=" + offset + (username?"&username ="+ username:"");
+  return fetch(APIendpoint, {
     method: 'GET',
-    headers: { Authorization: 'Bearer ' + token, ...jsonHeaders },
+    headers: jsonHeaders,
+
   })
     .then(handleJsonResponse)
     .then((result) => dispatch(MESSAGE_LIST.SUCCESS(result)))
     .catch((err) => Promise.reject(dispatch(MESSAGE_LIST.FAIL(err))))
-    .then((result) => dispatch(LOGOUT.SUCCESS(result)));
+    
 };
 export const reducers = {
-    addUser: createReducer(asyncInitialState, {
-      ...asyncCases(DELETE_MESSAGE),
-    }),
-    getUser: createReducer(asyncInitialState, {
-      ...asyncCases(MESSAGE_LIST),
-    }),
-    getProfileSum: createReducer(asyncInitialState, {
+    messageList: createReducer(asyncInitialState, {
+        ...asyncCases(MESSAGE_LIST),
+     createMessage: createReducer(asyncInitialState, {
       ...asyncCases(CREATE_MESSAGE),
-    })
+     })
+    }),
+     deleteMessage: createReducer(asyncInitialState, {
+      ...asyncCases(DELETE_MESSAGE),
+   }),
 }
