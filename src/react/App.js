@@ -8,22 +8,6 @@ import "./App.scss";
 import Button from "react-bootstrap/Button";
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { darkMode: false };
-  }
-
-  setDarkMode = () => {
-    this.setState({
-      darkMode: true,
-    });
-  };
-
-  setLightMode = () => {
-    this.setState({
-      darkMode: false,
-    });
-  };
   render() {
     return (
       <>
