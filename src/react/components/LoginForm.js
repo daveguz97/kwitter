@@ -11,6 +11,7 @@ import FormGroup from "react-bootstrap/FormGroup";
 import FormControl from "react-bootstrap/FormControl";
 import FormText from "react-bootstrap/FormText";
 import GoogleLogin from "react-google-login";
+import kwitterLogo from "../img/kwitter-logo.png";
 import "./LoginForm.scss";
 
 class LoginForm extends React.Component {
@@ -32,6 +33,7 @@ class LoginForm extends React.Component {
         <aside className="left-side">
           <Menu darkMode={this.state.darkMode} />
           <div className="text-center">
+            <img src={kwitterLogo} alt="Logo" className="logo" />
             <h1>Find Out What's happening</h1>
             <ul>
               <li>
