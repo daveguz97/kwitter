@@ -1,17 +1,18 @@
-import React from 'react';
-import Menu from './Menu';
-import Spinner from 'react-spinkit';
-import { connect } from 'react-redux';
-import { login } from '../../redux';
-import { Link } from 'react-router-dom';
-import KwitterLogo from '../img/kwitter-logo.png';
-import Button from 'react-bootstrap/Button';
-import Container from 'react-bootstrap/Container';
-import FormGroup from 'react-bootstrap/FormGroup';
-import FormControl from 'react-bootstrap/FormControl';
-import FormText from 'react-bootstrap/FormText';
-import './LoginForm.scss';
-// import GoogleLogin from "react-google-login";
+import React from "react";
+import Menu from "./Menu";
+import Spinner from "react-spinkit";
+import { connect } from "react-redux";
+import { login } from "../../redux";
+import { Link } from "react-router-dom";
+import KwitterLogo from "../img/kwitter-logo.png";
+import Button from "react-bootstrap/Button";
+import Container from "react-bootstrap/Container";
+import FormGroup from "react-bootstrap/FormGroup";
+import FormControl from "react-bootstrap/FormControl";
+import FormText from "react-bootstrap/FormText";
+import GoogleLogin from "react-google-login";
+import kwitterLogo from "../img/kwitter-logo.png";
+import "./LoginForm.scss";
 
 class LoginForm extends React.Component {
   state = { username: '', password: '' };
@@ -31,7 +32,8 @@ class LoginForm extends React.Component {
       <section className='LoginForm my-auto text-center'>
         <aside className='left-side'>
           <Menu darkMode={this.state.darkMode} />
-          <div className='text-center'>
+          <div className="text-center">
+            <img src={kwitterLogo} alt="Logo" className="logo" />
             <h1>Find Out What's happening</h1>
             <ul>
               <li>
@@ -47,8 +49,8 @@ class LoginForm extends React.Component {
             </ul>
           </div>
         </aside>
-        <Container className='mx-auto'>
-          <img src={KwitterLogo} alt='Kwitter Logo' />
+        <Container className="mx-auto">
+          <img className="logo" src={KwitterLogo} alt="Kwitter Logo" />
           <h1>Sign In</h1>
           <form id='login-form' onSubmit={this.handleLogin}>
             <FormGroup>
@@ -93,10 +95,6 @@ class LoginForm extends React.Component {
               cookiePolicy={"single_host_origin"}
             />
             , */}
-
-            <Button className='outline=primary mt-2'>
-              Sign In with <div className='fab fa-google'></div>
-            </Button>
             <Button
               type='submit'
               variant='outline-primary'

@@ -1,14 +1,13 @@
-import React from 'react';
-import { LoginForm, Menu } from './components';
-import { userIsNotAuthenticated } from './HOCs';
-// import Button from 'react-bootstrap/Button';
-import './Home.scss';
+import React from "react";
+import { LoginForm } from "./components";
+import "./Home.scss";
+import { userIsNotAuthenticated } from "./HOCs";
+import Button from "react-bootstrap/Button";
 class Home extends React.Component {
   render() {
     return (
-      <main className='Home'>
+      <main className="Home">
         <LoginForm />
-        <Menu />
       </main>
     );
   }

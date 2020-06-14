@@ -1,9 +1,10 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import './Menu.scss';
-import { connect } from 'react-redux';
-import { logout } from '../../redux';
-import kwitterLogo from '../img/kwitter-logo.png';
+import React from "react";
+import { Link } from "react-router-dom";
+import "./Menu.scss";
+import { connect } from "react-redux";
+import { logout } from "../../redux";
+import kwitterLogo from "../img/kwitter-logo.png";
+
 class Menu extends React.Component {
   handleLogout = (event) => {
     event.preventDefault();
@@ -12,16 +13,13 @@ class Menu extends React.Component {
 
   render() {
     return (
-      <div id='menu'>
-        {/* <h1>Kwitter</h1> */}
-
+      <div id="menu">
         {this.props.isAuthenticated && (
           <>
-            <img className='logo' src={kwitterLogo} alt='Kwitter Logo'></img>
-            <div id='menu-links'>
-              <Link to='/profiles/:username'>Profile</Link>
-              <Link to='/messagefeed'>Message Feed</Link>
-              <Link to='/' onClick={this.handleLogout}>
+            <img className="logo" src={kwitterLogo} alt="Kwitter Logo"></img>
+            <div id="menu-links">
+              <Link to="/messagefeed">Message Feed</Link>
+              <Link to="/" onClick={this.handleLogout}>
                 Logout
               </Link>
             </div>

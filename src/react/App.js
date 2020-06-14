@@ -1,11 +1,11 @@
-import React from 'react';
-import { Switch, Route } from 'react-router-dom';
-import Home from './Home';
-import Profile from './Profile';
-import NotFound from './NotFound';
-import Register from './Register';
-import MessageFeed from './MessageFeed';
-import './App.scss';
+import React from "react";
+import { Switch, Route } from "react-router-dom";
+import Home from "./Home";
+import Profile from "./Profile";
+import NotFound from "./NotFound";
+import Register from "./Register";
+import "./App.scss";
+import Button from "react-bootstrap/Button";
 
 class App extends React.Component {
   render() {
