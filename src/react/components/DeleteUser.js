@@ -6,8 +6,8 @@ import { deleteUsario } from '../../redux';
 class DeleteUser extends React.Component {
   handleDeleteUser = (event) => {
     event.preventDefault();
-    const confirm = window.confirm('Do you want to delete this account?');
-    if (confirm) {
+    const confirmDelete = window.confirm('Do you want to delete this account?');
+    if (confirmDelete) {
       this.props.deleteUsario(this.props.id);
     }
   };
@@ -18,7 +18,7 @@ class DeleteUser extends React.Component {
         <Button
           outline
           theme='danger'
-          size='sm'
+          size='small'
           onClick={this.handleDeleteUser}
         >
           Delete Account

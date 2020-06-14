@@ -1,0 +1,16 @@
+.wrapper {
+  display: flex;
+  #card {
+    margin: 0 1rem;
+    margin-bottom: 1rem;
+    #avatar {
+      vertical-align: middle;
+      border-radius: 50%;
+    }
+    .edit-profile,
+    .update-account {
+      display: inline;
+      margin: 0.3rem 0;
+    }
+  }
+}

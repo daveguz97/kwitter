@@ -11,13 +11,13 @@ import kwitterLogo from "../img/kwitter-logo.png";
 import "./RegistrationForm.scss";
 
 class RegistrationForm extends React.Component {
-  state = { username: "", displayName: "", password: "" };
+  state = { username: '', displayName: '', password: '' };
 
   handleRegistration = (event) => {
     event.preventDefault();
     this.props.addUser(this.state);
     if (this.props.error === null) {
-      return this.props.history.push("/");
+      return this.props.history.push('/');
     }
   };
   handleChange = (event) => {
