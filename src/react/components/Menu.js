@@ -1,8 +1,8 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import "./Menu.scss";
-import { connect } from "react-redux";
-import { logout } from "../../redux";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import './Menu.scss';
+import { connect } from 'react-redux';
+import { logout } from '../../redux';
 
 class Menu extends React.Component {
   handleLogout = (event) => {
@@ -12,13 +12,14 @@ class Menu extends React.Component {
 
   render() {
     return (
-      <div id="menu">
+      <div id='menu'>
         <h1>Kwitter</h1>
 
         {this.props.isAuthenticated && (
-          <div id="menu-links">
-            <Link to="/messagefeed">Message Feed</Link>
-            <Link to="/" onClick={this.handleLogout}>
+          <div id='menu-links'>
+            <Link to='/profiles/:username'>Profile</Link>
+            <Link to='/messagefeed'>Message Feed</Link>
+            <Link to='/' onClick={this.handleLogout}>
               Logout
             </Link>
           </div>

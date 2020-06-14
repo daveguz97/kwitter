@@ -1,8 +1,8 @@
-import React from "react";
-import { LoginForm } from "./components";
-import { userIsNotAuthenticated } from "./HOCs";
-import Button from "react-bootstrap/Button";
-import "./Home.scss";
+import React from 'react';
+import { LoginForm, Menu } from './components';
+import { userIsNotAuthenticated } from './HOCs';
+import Button from 'react-bootstrap/Button';
+import './Home.scss';
 class Home extends React.Component {
   constructor(props) {
     super(props);
@@ -23,20 +23,21 @@ class Home extends React.Component {
 
   render() {
     return (
-      <div className={`Home ${this.state.darkMode ? "darkmode" : "lightmode"}`}>
-        <div className="options">
-          <Button id="dark-mode-btn" variant="dark" onClick={this.setDarkMode}>
+      <div className={`Home ${this.state.darkMode ? 'darkmode' : 'lightmode'}`}>
+        <div className='options'>
+          <Button id='dark-mode-btn' variant='dark' onClick={this.setDarkMode}>
             Dark Mode
           </Button>
           <Button
-            id="light-mode-btn"
-            variant="light"
+            id='light-mode-btn'
+            variant='light'
             onClick={this.setLightMode}
           >
             Light Mode
           </Button>
         </div>
         <LoginForm darkMode={this.state.dark} />
+        <Menu />
       </div>
     );
   }
