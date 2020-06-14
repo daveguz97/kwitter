@@ -4,7 +4,7 @@ import { Input, Button } from 'semantic-ui-react';
 import { createMessage } from '../../redux';
 // import './CreateMessageForm.css';
 import Spinner from 'react-spinkit';
-
+// fix addnew messages, likes, delete reload
 class AddMessageCard extends Component {
   state = {
     text: '',
