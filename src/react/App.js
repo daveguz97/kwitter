@@ -5,18 +5,18 @@ import Profile from "./Profile";
 import NotFound from "./NotFound";
 import Register from "./Register";
 import "./App.scss";
-import Button from "react-bootstrap/Button";
+import MessageFeed from "./MessageFeed";
 
 class App extends React.Component {
   render() {
     return (
       <>
         <Switch>
-          <Route exact path='/' component={Home} />
-          <Route exact path='/profiles/:username' component={Profile} />
-          <Route exact path='/messagefeed' component={MessageFeed} />
-          <Route exact path='/register-form' component={Register} />
-          <Route path='*' component={NotFound} />
+          <Route exact path="/" component={Home} />
+          <Route exact path="/profiles/:username" component={Profile} />
+          <Route exact path="/messagefeed" component={MessageFeed} />
+          <Route exact path="/register-form" component={Register} />
+          <Route path="*" component={NotFound} />
         </Switch>
       </>
     );
