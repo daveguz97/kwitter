@@ -10,10 +10,14 @@ body {
 }
 
 body {
-  font-family: "Lato", sans-serif;
+  font-family: 'Lato', sans-serif;
   position: relative;
 }
 
 #root {
   width: 100%;
+}
+.logo {
+  max-width: 150px;
+  max-height: 150px;
 }
