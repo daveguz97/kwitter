@@ -11,10 +11,10 @@ class MessageFeed extends React.Component {
       <>
         <Grid columns={2} divided>
           <GridRow>
-            <GridColumn width={3}>
+            <GridColumn width={5}>
               <NavigationBar isAuthenticated={this.props.isAuthenticated} />
             </GridColumn>
-            <GridColumn width={5}>
+            <GridColumn>
               <h2>Message Feed</h2>
 
               <AddMessageCard />
