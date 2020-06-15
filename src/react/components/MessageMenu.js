@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { MessageCard } from '.';
-import { messageList } from '../../redux';
-// import "./MessageList.css";
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { MessageCard } from ".";
+import { messageList } from "../../redux";
+import "./MessageMenu.scss";
 
 class MessageMenu extends Component {
   state = {
@@ -17,10 +17,10 @@ class MessageMenu extends Component {
 
   render() {
     return (
-      <div className='message-list-wrapper'>
+      <div className="message-list-wrapper">
         {this.state.messages.map((msg) => (
           <MessageCard
-            className='message'
+            className="message"
             id={msg.id}
             createdAt={msg.createdAt}
             key={msg.id}

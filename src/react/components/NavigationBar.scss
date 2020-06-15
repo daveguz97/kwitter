@@ -1,0 +1,33 @@
+@import "../../../variables.scss";
+
+#menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  #title {
+    color: $primary-light-text-color;
+    font-weight: 800;
+  }
+  #menu-links {
+    a {
+      font-size: 1.5rem;
+      color: #333;
+      text-decoration: none;
+    }
+    .ui.secondary.vertical.pointing.menu {
+      border-right: none;
+    }
+    .active.item {
+      border-right: none;
+      border-bottom: 1px solid $primary-light-text-color;
+    }
+
+    div {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}

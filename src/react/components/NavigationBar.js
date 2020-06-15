@@ -5,9 +5,13 @@ import { connect } from "react-redux";
 import { logout } from "../../redux";
 import { Menu, Image } from "semantic-ui-react";
 import Kwitterlogo from "../img/kwitter-logo.png";
+import "./NavigationBar.scss";
 
 class NavigationBar extends React.Component {
-  state = { activeItem: "Profile" };
+  constructor(props) {
+    super(props);
+    this.state = { activeItem: "Profile" };
+  }
   handleLogout = (e) => {
     e.preventDefault();
     this.props.logout();
@@ -19,46 +23,49 @@ class NavigationBar extends React.Component {
     const { activeItem } = this.state;
 
     return (
-      <div id="menu">
-        <h1 id="title">Kwitter</h1>
-        <div className="logo-wrapper">
-          <Image
-            src={Kwitterlogo}
-            size="small"
-            alt=""
-            className="ui-small-image"
-            circular
-          />
+      <nav className="NavigationBar">
+        <div id="menu">
+          <h1 id="title" className="text-center">
+            Kwitter
+          </h1>
+          <div className="logo-wrapper">
+            <Image
+              src={Kwitterlogo}
+              size="small"
+              alt="Kwitter Logo"
+              className="ui-small-image"
+              circular
+            />
+          </div>
+          <div id="menu-links">
+            {this.props.isAuthenticated && (
+              <Menu pointing secondary vertical>
+                <Link to="/profiles/:username">
+                  <Menu.Item
+                    name="Profile"
+                    active={activeItem === "Profile"}
+                    onClick={this.handleItemClick}
+                  />
+                </Link>
+                <Link to="/messagefeed">
+                  <Menu.Item
+                    name="Message Feed"
+                    active={activeItem === "Message Feed"}
+                    onClick={this.handleItemClick}
+                  />
+                </Link>
+                <Link to="/" onClick={this.handleLogout}>
+                  <Menu.Item
+                    name="Logout"
+                    active={activeItem === "Logout"}
+                    onClick={this.handleItemClick}
+                  />
+                </Link>
+              </Menu>
+            )}
+          </div>
         </div>
-        <br />
-        <div id="menu-links">
-          {this.props.isAuthenticated && (
-            <Menu pointing secondary vertical>
-              <Link to="/profiles/:username">
-                <Menu.Item
-                  name="Profile"
-                  active={activeItem === "Profile"}
-                  onClick={this.handleItemClick}
-                />
-              </Link>
-              <Link to="/messagefeed">
-                <Menu.Item
-                  name="Message Feed"
-                  active={activeItem === "Message Feed"}
-                  onClick={this.handleItemClick}
-                />
-              </Link>
-              <Link to="/" onClick={this.handleLogout}>
-                <Menu.Item
-                  name="Logout"
-                  active={activeItem === "Logout"}
-                  onClick={this.handleItemClick}
-                />
-              </Link>
-            </Menu>
-          )}
-        </div>
-      </div>
+      </nav>
     );
   }
 }
