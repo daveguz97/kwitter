@@ -1,12 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
-import { ProfileSubmit, DeleteUser } from ".";
-import { getUser } from "../../redux";
-import { domain } from "../../redux/helpers";
+import { ProfileSubmit, DeleteUser } from "..";
+import { getUser } from "../../../redux";
+import { domain } from "../../../redux/helpers";
 import { Button, Card, Image, Modal, Header } from "semantic-ui-react";
-import { ProfileUpdate } from ".";
+import { ProfileUpdate } from "..";
 import "./ProfilePage.scss";
-import avatarDefaultPic from "../img/blank-profile-pic.png";
+import avatarDefaultPic from "../../img/blank-profile-pic.png";
 import Container from "react-bootstrap/Container";
 // import './ProfilePage.css';
 class ProfilePage extends React.Component {

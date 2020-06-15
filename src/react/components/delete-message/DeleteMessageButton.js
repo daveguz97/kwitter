@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Button, Icon } from "semantic-ui-react";
-import { connect } from "../HOCs";
-import { deleteMessage } from "../../redux";
+import { connect } from "../../HOCs";
+import { deleteMessage } from "../../../redux";
 
 class DeleteMessageButton extends Component {
   handleDeleteButton = (event) => {

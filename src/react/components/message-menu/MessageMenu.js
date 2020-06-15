@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { MessageCard } from ".";
-import { messageList } from "../../redux";
+import { MessageCard } from "..";
+import { messageList } from "../../../redux";
 import "./MessageMenu.scss";
 
 class MessageMenu extends Component {

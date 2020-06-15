@@ -2,9 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 // import "./NavigationBar.css";
 import { connect } from "react-redux";
-import { logout } from "../../redux";
+import { logout } from "../../../redux";
 import { Menu, Image } from "semantic-ui-react";
-import Kwitterlogo from "../img/kwitter-logo.png";
+import Kwitterlogo from "../../img/kwitter-logo.png";
 import "./NavigationBar.scss";
 
 class NavigationBar extends React.Component {

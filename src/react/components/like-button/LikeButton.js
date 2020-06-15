@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Button, Icon, Label } from "semantic-ui-react";
-import { like, deleteLike } from "../../redux";
+import { like, deleteLike } from "../../../redux";
 import { connect } from "react-redux";
 
 class LikeButton extends Component {
