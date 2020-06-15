@@ -13,7 +13,7 @@ import FormText from 'react-bootstrap/FormText';
 // import GoogleLogin from "react-google-login";
 import kwitterLogo from '../img/kwitter-logo.png';
 import './LoginForm.scss';
-
+//still in question
 class LoginForm extends React.Component {
   state = { username: '', password: '' };
 

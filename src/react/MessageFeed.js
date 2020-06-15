@@ -4,7 +4,7 @@ import MessageMenu from './components/MessageMenu';
 import AddMessageCard from './components/AddMessageCard';
 import NavigationBar from './components/NavigationBar';
 import { Grid, GridColumn } from 'semantic-ui-react';
-
+import UsersList from './components/ListOfUsers';
 class MessageFeed extends React.Component {
   render() {
     return (
@@ -15,7 +15,7 @@ class MessageFeed extends React.Component {
           </GridColumn>
           <GridColumn width={5}>
             <h2>Message Feed</h2>
-
+            <UsersList />
             <AddMessageCard />
             <MessageMenu isUserList={false} />
           </GridColumn>
