@@ -1,10 +1,10 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { getImagePro } from '../../redux';
-import { Button } from 'semantic-ui-react';
+import React from "react";
+import { connect } from "react-redux";
+import { getImagePro } from "../../../redux";
+import { Button } from "semantic-ui-react";
 class ProfileUpdate extends React.Component {
   state = {
-    picture: '',
+    picture: "",
   };
   handleUpdateSubmit = (event) => {
     event.preventDefault();
@@ -17,11 +17,11 @@ class ProfileUpdate extends React.Component {
       <>
         <form onSubmit={this.handleUpdateSubmit}>
           <input
-            type='file'
-            name='picture'
-            accept='image/png, image/jpeg, image/gif'
+            type="file"
+            name="picture"
+            accept="image/png, image/jpeg, image/gif"
           ></input>
-          <Button type='submit'>Save Image</Button>
+          <Button type="submit">Save Image</Button>
         </form>
       </>
     );

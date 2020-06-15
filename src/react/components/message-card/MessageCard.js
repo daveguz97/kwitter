@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Card } from "semantic-ui-react";
-import { connect } from "../HOCs";
-import DeleteMessageButton from "./DeleteMessageButton";
-import LikeButton from "./LikeButton";
+import { connect } from "../../HOCs";
+import DeleteMessageButton from "../delete-message/DeleteMessageButton";
+import LikeButton from "../like-button/LikeButton";
 
 // import "./Message.css"
 

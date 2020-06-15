@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Input, Button } from 'semantic-ui-react';
-import { createMessage } from '../../redux';
-// import './CreateMessageForm.css';
-import Spinner from 'react-spinkit';
-// fix addnew messages, likes, delete reload
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { Input, Button } from "semantic-ui-react";
+import { createMessage } from "../../../redux";
+import Spinner from "react-spinkit";
+// TODO: fix addnew messages, likes, delete reload
+
 class AddMessageCard extends Component {
   state = {
-    text: '',
+    text: "",
   };
 
   handleCreate = (event) => {
@@ -15,7 +15,7 @@ class AddMessageCard extends Component {
     this.props
       .createMessage(this.state)
       .then((event) => window.location.reload());
-    this.setState({ text: '' });
+    this.setState({ text: "" });
   };
 
   handleChange = (event) => {
@@ -25,23 +25,23 @@ class AddMessageCard extends Component {
   render() {
     const { loading, error } = this.props;
     return (
-      <div id='new-message'>
+      <div id="new-message">
         <form onSubmit={this.handleCreate}>
           <Input
-            id='message-input'
-            type='text'
-            name='text'
+            id="message-input"
+            type="text"
+            name="text"
             autoFocus
             required
-            placeholder='Enter message'
+            placeholder="Enter message"
             onChange={this.handleChange}
           ></Input>
-          <Button id='post-button' type='submit' disabled={loading}>
+          <Button id="post-button" type="submit" disabled={loading}>
             Post your Message
           </Button>
         </form>
-        {loading && <Spinner name='circle' color='blue' />}
-        {error && <p style={{ color: 'red' }}>{error.message}</p>}
+        {loading && <Spinner name="circle" color="blue" />}
+        {error && <p style={{ color: "red" }}>{error.message}</p>}
       </div>
     );
   }

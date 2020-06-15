@@ -1,23 +1,23 @@
 import React from "react";
 import Spinner from "react-spinkit";
 import { connect } from "react-redux";
-import { login } from "../../redux/auth";
-import { addUser } from "../../redux";
+import { login } from "../../../redux/auth";
+import { addUser } from "../../../redux";
 import { withRouter } from "react-router-dom";
 import { Button, Form } from "semantic-ui-react";
 import Container from "react-bootstrap/Container";
 import { Link } from "react-router-dom";
-import kwitterLogo from "../img/kwitter-logo.png";
+import kwitterLogo from "../../img/kwitter-logo.png";
 import "./RegistrationForm.scss";
 
 class RegistrationForm extends React.Component {
-  state = { username: '', displayName: '', password: '' };
+  state = { username: "", displayName: "", password: "" };
 
   handleRegistration = (event) => {
     event.preventDefault();
     this.props.addUser(this.state);
     if (this.props.error === null) {
-      return this.props.history.push('/');
+      return this.props.history.push("/");
     }
   };
   handleChange = (event) => {

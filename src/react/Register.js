@@ -1,5 +1,5 @@
 import React from "react";
-import { RegistrationForm, Menu } from "../react/components/index";
+import { RegistrationForm, Menu } from "./components/index";
 class Register extends React.Component {
   render() {
     return (
