@@ -1,34 +1,31 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { MessageCard } from ".";
-import { messageList } from "../../redux";
-import "./MessageMenu.scss";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { logout } from '../../redux';
+import kwitterLogo from '../img/kwitter-logo.png';
 
-class MessageMenu extends Component {
-  state = {
-    messages: [],
-  };
-
-  componentDidMount = () => {
-    this.props
-      .messageList(100, 0, this.props.isUserList ? this.props.username : null)
-      .then((val) => this.setState({ messages: val.payload.messages }));
+class Menu extends React.Component {
+  handleLogout = (event) => {
+    event.preventDefault();
+    this.props.logout();
   };
 
   render() {
     return (
-      <div className="message-list-wrapper">
-        {this.state.messages.map((msg) => (
-          <MessageCard
-            className="message"
-            id={msg.id}
-            createdAt={msg.createdAt}
-            key={msg.id}
-            likes={msg.likes}
-            text={msg.text}
-            username={msg.username}
-          />
-        ))}
+      <div id='menu'>
+        {this.props.isAuthenticated && (
+          <>
+            <img className='logo' src={kwitterLogo} alt='Kwitter Logo'></img>
+            <div id='menu-links'>
+              <Link exact to='/messagefeed'>
+                Message Feed
+              </Link>
+              <Link to='/' onClick={this.handleLogout}>
+                Logout
+              </Link>
+            </div>
+          </>
+        )}
       </div>
     );
   }
@@ -36,10 +33,9 @@ class MessageMenu extends Component {
 
 export default connect(
   (state) => ({
-    result: state.messages.messageList.result,
-    loading: state.messages.messageList.loading,
-    error: state.messages.messageList.error,
-    username: state.auth.login.result.username,
+    result: state.auth.logout.result,
+    loading: state.auth.logout.loading,
+    error: state.auth.logout.error,
   }),
-  { messageList }
-)(MessageMenu);
+  { logout }
+)(Menu);

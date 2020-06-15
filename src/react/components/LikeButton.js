@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import { Button, Icon, Label } from "semantic-ui-react";
-import { like, deleteLike } from "../../redux";
-import { connect } from "react-redux";
+import React, { Component } from 'react';
+import { Button, Icon, Label } from 'semantic-ui-react';
+import { like, deleteLike } from '../../redux';
+import { connect } from 'react-redux';
 
 class LikeButton extends Component {
   handleLikeButton = (event) => {
@@ -24,12 +24,12 @@ class LikeButton extends Component {
 
   render() {
     return (
-      <Button as="div" labelPosition="right" onClick={this.handleLikeButton}>
+      <Button as='div' labelPosition='right' onClick={this.handleLikeButton}>
         <Button icon primary>
-          <Icon name="heart" />
+          <Icon name='heart' />
           Like
         </Button>
-        <Label as="a" basic pointing="left">
+        <Label as='a' basic pointing='left'>
           {this.props.likes.length}
         </Label>
       </Button>

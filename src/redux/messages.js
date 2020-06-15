@@ -7,10 +7,8 @@ import {
   createActions,
   createReducer,
 } from './helpers';
-
 const url = domain + '/messages';
-
-// create list of messages
+// import {messageList} from './messageList';
 const MESSAGE_LIST = createActions('messageList');
 export const messageList = (limit = 100, offset = 0, username) => (
   dispatch
@@ -38,16 +36,20 @@ export const messageList = (limit = 100, offset = 0, username) => (
 const CREATE_MESSAGE = createActions('createMessage');
 export const createMessage = (createMessageData) => (dispatch, getState) => {
   dispatch(CREATE_MESSAGE.START());
+  dispatch(messageList());
 
   const token = getState().auth.login.result.token;
 
   return fetch(url, {
     method: 'POST',
     headers: { Authorization: 'Bearer ' + token, ...jsonHeaders },
-    body: JSON.stringify(createMessageData),
+    body: JSON.stringify({ text: createMessageData }),
   })
     .then(handleJsonResponse)
-    .then((result) => dispatch(CREATE_MESSAGE.SUCCESS(result)))
+    .then((result) => {
+      dispatch(messageList());
+      dispatch(CREATE_MESSAGE.SUCCESS(result));
+    })
     .catch((err) => Promise.reject(dispatch(CREATE_MESSAGE.FAIL(err))));
 };
 

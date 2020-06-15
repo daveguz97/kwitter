@@ -1,9 +1,9 @@
-import React from "react";
-import { userIsAuthenticated } from "./HOCs";
-import MessageMenu from "./components/MessageMenu";
-import AddMessageCard from "./components/AddMessageCard";
-import NavigationBar from "./components/NavigationBar";
-import { Grid, GridColumn, GridRow } from "semantic-ui-react";
+import React from 'react';
+import { userIsAuthenticated } from './HOCs';
+import MessageMenu from './components/MessageMenu';
+import AddMessageCard from './components/AddMessageCard';
+import NavigationBar from './components/NavigationBar';
+import { Grid, GridColumn, GridRow } from 'semantic-ui-react';
 
 class MessageFeed extends React.Component {
   render() {

@@ -2,19 +2,42 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Input, Button } from 'semantic-ui-react';
 import { createMessage } from '../../redux';
+// import { messageList } from '../../redux';
 // import './CreateMessageForm.css';
 import Spinner from 'react-spinkit';
 // fix addnew messages, likes, delete reload
 class AddMessageCard extends Component {
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     text: '',
+  //   };
+  // }
+  // componentWillMount() {
+  //   console.log('First this called');
+  // }
+
+  // getData() {
+  //   setTimeout(() => {
+  //     console.log('Our data is fetched');
+  //     this.setState({
+  //       text: '',
+  //     });
+  //   }, 1000);
+  // }
+
+  // componentDidMount() {
+  //   this.getData();
+  // }
   state = {
     text: '',
   };
 
   handleCreate = (event) => {
     event.preventDefault();
-    this.props
-      .createMessage(this.state)
-      .then((event) => window.location.reload());
+    this.props.createMessage(this.state);
+    // .then((event) => window.location.reload());
+    // this.props.messageList();
     this.setState({ text: '' });
   };
 
@@ -35,6 +58,7 @@ class AddMessageCard extends Component {
             required
             placeholder='Enter message'
             onChange={this.handleChange}
+            value={this.state.text}
           ></Input>
           <Button id='post-button' type='submit' disabled={loading}>
             Post your Message
