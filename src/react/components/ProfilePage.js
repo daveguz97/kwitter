@@ -6,6 +6,7 @@ import { domain } from "../../redux/helpers";
 import { Button, Card, Image, Modal, Header } from "semantic-ui-react";
 import { ProfileUpdate } from ".";
 import "./ProfilePage.scss";
+import avatarDefaultPic from "../img/blank-profile-pic.png";
 // import './ProfilePage.css';
 class ProfilePage extends React.Component {
   state = {
@@ -36,7 +37,14 @@ class ProfilePage extends React.Component {
         <div className="wrapper">
           <Card id="card">
             <Card.Content>
-              <Image id="avatar" src={domain + this.state.pictureLocation} />
+              <Image
+                id="avatar"
+                src={
+                  this.state.pictureLocation
+                    ? domain + this.state.pictureLocation
+                    : avatarDefaultPic
+                }
+              />
               <Card.Header>
                 <h2>{this.state.displayName}</h2>
               </Card.Header>
