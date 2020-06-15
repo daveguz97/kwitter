@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
-import { Button, Icon } from 'semantic-ui-react';
-import { connect } from '../HOCs';
-import { deleteMessage } from '../../redux';
+import React, { Component } from "react";
+import { Button, Icon } from "semantic-ui-react";
+import { connect } from "../HOCs";
+import { deleteMessage } from "../../redux";
 
 class DeleteMessageButton extends Component {
   handleDeleteButton = (event) => {
     const confirmMessage = window.confirm(
-      'Do you want to delete this message?'
+      "Do you want to delete this message?"
     );
     if (confirmMessage) {
       this.props
@@ -16,8 +16,8 @@ class DeleteMessageButton extends Component {
   };
   render() {
     return (
-      <Button icon onClick={this.handleDeleteButton}>
-        <Icon name='trash' />
+      <Button icon onClick={this.handleDeleteButton} color="red">
+        <Icon name="trash" />
         Delete
       </Button>
     );
