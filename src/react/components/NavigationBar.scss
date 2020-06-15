@@ -7,7 +7,7 @@
     justify-content: center;
     align-items: center;
     #title {
-      color: $primary-text-color;
+      color: $secondary-text-color;
       font-weight: 800;
     }
     #menu-links {
@@ -21,7 +21,7 @@
       }
       .active.item {
         border-right: none;
-        border-bottom: 1px solid $primary-text-color;
+        border-bottom: 1px solid $secondary-text-color;
       }
 
       div {
