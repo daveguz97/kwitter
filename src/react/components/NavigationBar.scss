@@ -7,21 +7,25 @@
     justify-content: center;
     align-items: center;
     #title {
-      color: $primary-light-text-color;
+      color: $secondary-text-color;
       font-weight: 800;
     }
     #menu-links {
       a {
         font-size: 1.5rem;
-        color: #333;
+        color: $primary-text-color;
         text-decoration: none;
+      }
+      a:hover {
+        transition: all 0.3s ease;
+        color: $secondary-text-color;
       }
       .ui.secondary.vertical.pointing.menu {
         border-right: none;
       }
       .active.item {
         border-right: none;
-        border-bottom: 1px solid $primary-light-text-color;
+        border-bottom: 1px solid $secondary-text-color;
       }
 
       div {
