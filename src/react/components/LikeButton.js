@@ -4,22 +4,24 @@ import { like, deleteLike } from '../../redux';
 import { connect } from 'react-redux';
 
 class LikeButton extends Component {
+  componentDidMount() {
+    this.props.like();
+  }
+
   handleLikeButton = (event) => {
     event.preventDefault();
     // is there a like?
     for (let i = 0; i < this.props.likes.length; i++) {
       if (this.props.likes[i].username === this.props.username) {
         // delete a like
-        this.props
-          .deleteLike(this.props.likes[i].id)
-          .then((event) => window.location.reload());
+        this.props.deleteLike(this.props.likes[i].id);
+        // .then((event) => window.location.reload());
         return;
       }
     }
     // add a like
-    this.props
-      .like({ messageId: this.props.id })
-      .then((event) => window.location.reload());
+    this.props.like({ messageId: this.props.id });
+    // .then((event) => window.location.reload());
   };
 
   render() {
