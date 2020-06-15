@@ -7,6 +7,7 @@ import { Button, Card, Image, Modal, Header } from "semantic-ui-react";
 import { ProfileUpdate } from ".";
 import "./ProfilePage.scss";
 import avatarDefaultPic from "../img/blank-profile-pic.png";
+import Container from "react-bootstrap/Container";
 // import './ProfilePage.css';
 class ProfilePage extends React.Component {
   state = {
@@ -33,7 +34,7 @@ class ProfilePage extends React.Component {
     const createKwitterDate = new Date(this.state.createdAt);
     const updateKwitterDate = new Date(this.state.updatedAt);
     return (
-      <>
+      <Container>
         <div className="wrapper">
           <Card id="card">
             <Card.Content>
@@ -91,7 +92,7 @@ class ProfilePage extends React.Component {
             </Card.Content>
           </Card>
         </div>
-      </>
+      </Container>
     );
   }
 }
