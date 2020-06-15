@@ -1,24 +1,26 @@
-import React from 'react';
-import { userIsAuthenticated } from './HOCs';
-import MessageMenu from './components/MessageMenu';
-import AddMessageCard from './components/AddMessageCard';
-import NavigationBar from './components/NavigationBar';
-import { Grid, GridColumn } from 'semantic-ui-react';
+import React from "react";
+import { userIsAuthenticated } from "./HOCs";
+import MessageMenu from "./components/MessageMenu";
+import AddMessageCard from "./components/AddMessageCard";
+import NavigationBar from "./components/NavigationBar";
+import { Grid, GridColumn, GridRow } from "semantic-ui-react";
 
 class MessageFeed extends React.Component {
   render() {
     return (
       <>
-        <Grid>
-          <GridColumn width={3}>
-            <NavigationBar isAuthenticated={this.props.isAuthenticated} />
-          </GridColumn>
-          <GridColumn width={5}>
-            <h2>Message Feed</h2>
+        <Grid columns={2} divided>
+          <GridRow>
+            <GridColumn width={3}>
+              <NavigationBar isAuthenticated={this.props.isAuthenticated} />
+            </GridColumn>
+            <GridColumn width={5}>
+              <h2>Message Feed</h2>
 
-            <AddMessageCard />
-            <MessageMenu isUserList={false} />
-          </GridColumn>
+              <AddMessageCard />
+              <MessageMenu isUserList={false} />
+            </GridColumn>
+          </GridRow>
         </Grid>
       </>
     );

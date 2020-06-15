@@ -18,7 +18,9 @@ class Menu extends React.Component {
           <>
             <img className="logo" src={kwitterLogo} alt="Kwitter Logo"></img>
             <div id="menu-links">
-              <Link to="/messagefeed">Message Feed</Link>
+              <Link exact to="/messagefeed">
+                Message Feed
+              </Link>
               <Link to="/" onClick={this.handleLogout}>
                 Logout
               </Link>
