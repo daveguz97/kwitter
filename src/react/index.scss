@@ -18,7 +18,8 @@ body {
   overflow-x: none;
   font-family: "Lato", sans-serif;
   position: relative;
-  background-color: $light-background-color;
+  background-color: $background-color;
+  color: $primary-text-color;
 }
 
 .logo {
