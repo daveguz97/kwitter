@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Button, Icon, Label } from 'semantic-ui-react';
-import { like, deleteLike } from '../../redux';
+import { like } from '../../redux';
 import { connect } from 'react-redux';
 
-class LikeButton extends Component {
+class LikeButton extends React.Component {
   // componentDidMount() {
   //   this.props.like();
   // }
@@ -45,10 +45,20 @@ class LikeButton extends Component {
     );
   }
 }
+const mapStateToProps = (state) => {
+  return {
+    loggedInUsername: state.auth.login.result.username,
+  };
+};
+const mapDispatchToProps = {
+  like,
+};
 
-export default connect(
-  (state) => ({
-    username: state.auth.login.result.username,
-  }),
-  { like, deleteLike }
-)(LikeButton);
+export default connect(mapStateToProps, mapDispatchToProps)(LikeButton);
+
+// export default connect(
+//   (state) => ({
+//     username: state.auth.login.result.username,
+//   }),
+//   { like, deleteLike }
+// )(LikeButton);
