@@ -11,26 +11,21 @@ import {
 const url = domain + '/messages';
 
 // create list of messages
+const Apiurl = domain + '/messages?limit=10';
+
+// create list of messages
 const MESSAGE_LIST = createActions('messageList');
-export const messageList = (limit = 100, offset = 0, username) => (
-  dispatch
-) => {
+export const messageList = () => (dispatch) => {
   dispatch(MESSAGE_LIST.START());
 
-  const apiUrl =
-    url +
-    '?limit=' +
-    limit +
-    '&offset=' +
-    offset +
-    (username ? '&username=' + username : '');
-
-  return fetch(apiUrl, {
-    method: 'GET',
-    headers: jsonHeaders,
-  })
+  return fetch(Apiurl)
     .then(handleJsonResponse)
-    .then((result) => dispatch(MESSAGE_LIST.SUCCESS(result)))
+    .then((result) => {
+      console.log(result);
+      result = Object.keys(result.messages).map((key) => result.messages[key]);
+      console.log(result);
+      dispatch(MESSAGE_LIST.SUCCESS(result));
+    })
     .catch((err) => Promise.reject(dispatch(MESSAGE_LIST.FAIL(err))));
 };
 
@@ -38,16 +33,20 @@ export const messageList = (limit = 100, offset = 0, username) => (
 const CREATE_MESSAGE = createActions('createMessage');
 export const createMessage = (createMessageData) => (dispatch, getState) => {
   dispatch(CREATE_MESSAGE.START());
+  dispatch(messageList());
 
   const token = getState().auth.login.result.token;
 
   return fetch(url, {
     method: 'POST',
     headers: { Authorization: 'Bearer ' + token, ...jsonHeaders },
-    body: JSON.stringify(createMessageData),
+    body: JSON.stringify({ text: createMessageData }),
   })
     .then(handleJsonResponse)
-    .then((result) => dispatch(CREATE_MESSAGE.SUCCESS(result)))
+    .then((result) => {
+      dispatch(messageList());
+      dispatch(CREATE_MESSAGE.SUCCESS(result));
+    })
     .catch((err) => Promise.reject(dispatch(CREATE_MESSAGE.FAIL(err))));
 };
 
