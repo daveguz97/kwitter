@@ -7,21 +7,27 @@ class LikeButton extends Component {
   handleLikeButton = (event) => {
     event.preventDefault();
     // is there a like?
-    for (let i = 0; i < this.props.likes.length; i++) {
-      if (this.props.likes[i].username === this.props.username) {
-        // delete a like
-        this.props
-          .deleteLike(this.props.likes[i].id)
-          .then((event) => window.location.reload());
-        return;
-      }
-    }
     // add a like
+    // .then((event) => window.location.reload());
+        for (let i = 0; i < this.props.likes.length; i++) {
+          if (this.props.likes[i].username === this.props.username) {
+            // delete a like
+            this.props
+              .deleteLike(this.props.likes[i].id)
+              .then((event) => window.location.reload());
+            return;
+          }
+        }
+  };
+  componentDidMount(event){
     this.props
       .like({ messageId: this.props.id })
-      .then((event) => window.location.reload());
-  };
-
+  
+}
+componentDidUpdate(event) {
+  // Typical usage (don't forget to compare props):
+  
+}
   render() {
     return (
       <Button as="div" labelPosition="right" onClick={this.handleLikeButton}>
