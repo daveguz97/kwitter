@@ -2,14 +2,14 @@ import React from "react";
 import Menu from "../menu/Menu";
 import Spinner from "react-spinkit";
 import { connect } from "react-redux";
-import { login } from "../../../redux";
+import { login, googleLogin } from "../../../redux";
+import { messageList } from "../../../redux/messages";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import FormGroup from "react-bootstrap/FormGroup";
 import FormControl from "react-bootstrap/FormControl";
 import FormText from "react-bootstrap/FormText";
-import GoogleLogin from "react-google-login";
 import kwitterLogo from "../../img/kwitter-logo.png";
 import "./LoginForm.scss";
 
@@ -19,10 +19,27 @@ class LoginForm extends React.Component {
   handleLogin = (event) => {
     event.preventDefault();
     this.props.login(this.state);
+    this.props.messageList();
   };
 
-  handleChange = (event) => {
-    this.setState({ [event.target.name]: event.target.value });
+  // Added Google Login
+  googleLogin = () => {
+    const authWindow = window.open(
+      "https://kwitter-api.herokuapp.com/auth/google/login",
+      "_blank",
+      "width=1000,height=1000"
+    );
+    authWindow.window.opener.onmessage = (e) => {
+      authWindow.close();
+      if (!e || !e.data || !e.data.token) {
+        return;
+      }
+      this.props.googleLogin(e.data);
+    };
+  };
+
+  handleChange = (e) => {
+    this.setState({ [e.target.name]: e.target.value });
   };
 
   render() {
@@ -30,7 +47,7 @@ class LoginForm extends React.Component {
     return (
       <section className="LoginForm my-auto text-center">
         <aside className="left-side">
-          <Menu darkMode={this.state.darkMode} />
+          <Menu />
           <div className="text-center">
             <img src={kwitterLogo} alt="Logo" className="logo" />
             <h1>Find Out What's happening</h1>
@@ -78,22 +95,6 @@ class LoginForm extends React.Component {
                 <Link to="/register-form"> New User? Sign Up</Link>
               </FormText>
             </div>
-            {/* <GoogleLogin
-              clientId="658977310896-knrl3gka66fldh83dao2rhgbblmd4un9.apps.googleusercontent.com"
-              render={(renderProps) => (
-                <button
-                  onClick={renderProps.onClick}
-                  disabled={renderProps.disabled}
-                >
-                  This is my custom Google button
-                </button>
-              )}
-              buttonText="Login"
-              onSuccess={responseGoogle}
-              onFailure={responseGoogle}
-              cookiePolicy={"single_host_origin"}
-            />
-            , */}
             <Button
               type="submit"
               variant="outline-primary"
@@ -101,6 +102,9 @@ class LoginForm extends React.Component {
               disabled={loading}
             >
               Login
+            </Button>
+            <Button variant="primary" type="submit" onClick={this.googleLogin}>
+              Login With <i className="fab fa-google"></i>
             </Button>
             {loading && <Spinner name="circle" color="blue" />}
             {error && <p style={{ color: "red" }}>{error.message}</p>}
@@ -117,5 +121,5 @@ export default connect(
     loading: state.auth.login.loading,
     error: state.auth.login.error,
   }),
-  { login }
+  { login, messageList, googleLogin }
 )(LoginForm);
