@@ -1,13 +1,19 @@
+## Cite
+
+### URL: https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage, https://react-bootstrap.github.io/, https://react.semantic-ui.com/
+
+### Coaches and people who helped: Drew Radcliff, Chris Carter, Vincent St. Louis, Drashti Dalsania, John, Gordon, Leanne Bensen
+
 ## Overview
 
-You will be working in teams to make a clone of a common micro-blogging platform. You will be given a back-end API for you to form your front-end application around. 
+You will be working in teams to make a clone of a common micro-blogging platform. You will be given a back-end API for you to form your front-end application around.
 The API will include endpoints relating to authentication, users, messages, and likes. Your project must incorporate a majority of the endpoints given in the API.
 
 A portion of your grade will be based on your team-working ability. Please see [this document](https://gitlab.com/kenzie-academy/se_public_files/team-guidelines/-/tree/master)
 for guidelines.
 
-You will also be following the Scrum process and, although everyone will be a developer and individual contributor, your team should account for the roles of Product Owner, 
-Scrum Master, and QA Tester. Please see [this document](https://gitlab.com/kenzie-academy/se_public_files/scrum-guidelines/-/blob/master/README.md) for more details. 
+You will also be following the Scrum process and, although everyone will be a developer and individual contributor, your team should account for the roles of Product Owner,
+Scrum Master, and QA Tester. Please see [this document](https://gitlab.com/kenzie-academy/se_public_files/scrum-guidelines/-/blob/master/README.md) for more details.
 
 Client memo:
 
@@ -30,8 +36,8 @@ _We are also interested in establishing the look and feel of our visual brand ea
 
 ## Getting Started...
 
-1. Create a Scrum board (trello, github/gitlab project board, etc.) 
-    - [trello scrum example](https://trello.com/b/0xzkRjTH/scrum-project-management-board)
+1. Create a Scrum board (trello, github/gitlab project board, etc.)
+   - [trello scrum example](https://trello.com/b/0xzkRjTH/scrum-project-management-board)
 2. Plan out your first week sprint goals.
 3. Familiarize yourself with [the API](https://kwitter-api.herokuapp.com/docs/)
 4. Create mock ups for possible pages
@@ -44,5 +50,7 @@ _We are also interested in establishing the look and feel of our visual brand ea
 
 1. git repo url - this is the url that has your frontend kwitter project source code
 2. Scrum board - this shows your scrum board which has tickets with descriptions and assignees. it could be a trello board or a gitlab/github project board or similar.
-3. Retrospective board or notes - show that your team discussed how to improve its process through notes about what went well/what went poorly/action items. 
-It could be general notes or a funretro.io board.
+3. Retrospective board or notes - show that your team discussed how to improve its process through notes about what went well/what went poorly/action items.
+   It could be general notes or a funretro.io board.
+
+---
