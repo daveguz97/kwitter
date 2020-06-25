@@ -16,11 +16,19 @@
 .modals.dimmer {
   height: 100%;
   position: relative;
+  background: rgba(0, 0, 0, 0.8);
+  .modal {
+    margin-top: 0.8rem;
+    margin-left: 8%;
+    height: 80%;
+    width: 50%;
+  }
   .ui.scrolling.modal {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: 80%;
+    background: skyblue;
   }
 }
