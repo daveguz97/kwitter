@@ -1,5 +1,4 @@
 .wrapper {
-  height: 100vh;
   #card {
     margin-top: 1rem;
     #avatar {
@@ -11,5 +10,17 @@
       display: inline;
       margin: 0.3rem 0;
     }
+  }
+}
+
+.modals.dimmer {
+  height: 100%;
+  position: relative;
+  .ui.scrolling.modal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
   }
 }
