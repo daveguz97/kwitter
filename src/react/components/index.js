@@ -1,3 +1,15 @@
-export { default as LoginForm } from "./LoginForm";
-export { default as Menu } from "./Menu";
-export { default as RegistrationForm } from "./RegistrationForm";
+export { default as LoginForm } from './LoginForm';
+export { default as Menu } from './Menu';
+export { default as RegistrationForm } from './RegistrationForm';
+export { default as DeleteUser } from './DeleteUser';
+export { default as ProfilePage } from './ProfilePage';
+export { default as ProfileUpdate } from './ProfileUpdate';
+export { default as ProfileSubmit } from './ProfileSubmit';
+export { Card, Form, Button, Image, Grid } from 'semantic-ui-react';
+export { default as MessageCard } from './MessageCard';
+export { default as MessageMenu } from './MessageMenu';
+export { default as AddMessageCard } from './AddMessageCard';
+export { default as DeleteMessageButton } from './DeleteMessageButton';
+// export { default as Register } from './Register';
+export { default as LikeButton } from './LikeButton';
+// export { default as NavigationBar } from './NavigationBar';
