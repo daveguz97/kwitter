@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/daveguz97/static/css/main.cb1f1e7b.chunk.css",
+    "main.js": "/daveguz97/static/js/main.9ad9c41e.chunk.js",
+    "main.js.map": "/daveguz97/static/js/main.9ad9c41e.chunk.js.map",
+    "runtime-main.js": "/daveguz97/static/js/runtime-main.6b8a0052.js",
+    "runtime-main.js.map": "/daveguz97/static/js/runtime-main.6b8a0052.js.map",
+    "static/css/2.d97600f8.chunk.css": "/daveguz97/static/css/2.d97600f8.chunk.css",
+    "static/js/2.2a29385b.chunk.js": "/daveguz97/static/js/2.2a29385b.chunk.js",
+    "static/js/2.2a29385b.chunk.js.map": "/daveguz97/static/js/2.2a29385b.chunk.js.map",
+    "index.html": "/daveguz97/index.html",
+    "precache-manifest.3726b6a8556b9edc8daa2ac14a047eda.js": "/daveguz97/precache-manifest.3726b6a8556b9edc8daa2ac14a047eda.js",
+    "service-worker.js": "/daveguz97/service-worker.js",
+    "static/css/2.d97600f8.chunk.css.map": "/daveguz97/static/css/2.d97600f8.chunk.css.map",
+    "static/css/main.cb1f1e7b.chunk.css.map": "/daveguz97/static/css/main.cb1f1e7b.chunk.css.map",
+    "static/js/2.2a29385b.chunk.js.LICENSE.txt": "/daveguz97/static/js/2.2a29385b.chunk.js.LICENSE.txt",
+    "static/media/blank-profile-pic.png": "/daveguz97/static/media/blank-profile-pic.77f5794e.png",
+    "static/media/kwitter-logo.png": "/daveguz97/static/media/kwitter-logo.801ae5b8.png",
+    "static/media/LoginForm.scss": "/daveguz97/static/media/login-background.7d0dd93a.jpeg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.6b8a0052.js",
+    "static/css/2.d97600f8.chunk.css",
+    "static/js/2.2a29385b.chunk.js",
+    "static/css/main.cb1f1e7b.chunk.css",
+    "static/js/main.9ad9c41e.chunk.js"
+  ]
+}
